@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Créer un réseau Bluetooth Mesh",
+        "description": "Crée un nouveau réseau Bluetooth Mesh privé, avec ses propres clés aléatoires. Vous ajouterez ensuite vos lampes depuis la page de cette intégration."
+      }
+    }
+  },
+  "config_subentries": {
+    "light": {
+      "entry_type": "Lampe",
+      "initiate_flow": {
+        "user": "Ajouter une lampe",
+        "reconfigure": "Ré-enrôler la lampe"
+      },
+      "step": {
+        "user": {
+          "title": "Ajouter une lampe",
+          "description": "Seules les lampes réinitialisées sont listées (allumez et éteignez la lampe 5 fois : elle clignote). Une lampe déjà appairée à une autre application ou à un autre réseau n'apparaît pas. Une lampe éteinte disparaît de la liste après 30 secondes : cochez « Actualiser la liste » et validez pour la mettre à jour.",
+          "data": {
+            "address": "Lampe",
+            "name": "Nom",
+            "refresh": "Actualiser la liste (n'ajoute aucune lampe)"
+          }
+        },
+        "none_found": {
+          "title": "Aucune lampe trouvée",
+          "description": "Aucune lampe réinitialisée à proximité. Allumez et éteignez la lampe 5 fois, attendez qu'elle clignote, puis cliquez sur Envoyer pour réessayer."
+        },
+        "reconfigure": {
+          "title": "Ré-enrôler la lampe",
+          "description": "À utiliser si « {name} » a été réinitialisée (allumée et éteinte 5 fois, elle clignote) : elle ne répond alors plus à Home Assistant. Elle sera de nouveau appairée, en gardant son nom, son entité et ses automatisations."
+        }
+      },
+      "progress": {
+        "provision": "Appairage et configuration de la lampe en cours. Cela prend environ 20 secondes."
+      },
+      "abort": {
+        "entry_not_loaded": "Le réseau n'est pas démarré. Activez-le, puis réessayez.",
+        "provisioning_failed": "La lampe n'a pas pu être ajoutée : {error}",
+        "reconfigure_successful": "La lampe est de nouveau appairée."
+      },
+      "error": {
+        "not_reset": "Cette lampe n'est pas en attente d'appairage. Allumez-la et éteignez-la 5 fois, attendez qu'elle clignote, puis réessayez."
+      }
+    }
+  },
+  "exceptions": {
+    "command_failed": {
+      "message": "La lampe n'a pas exécuté la commande : {error}"
+    }
+  }
+}

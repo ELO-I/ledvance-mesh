@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Create a Bluetooth Mesh network",
+        "description": "This creates a new, private Bluetooth Mesh network with its own random keys. You will then add your lamps from this integration's page."
+      }
+    }
+  },
+  "config_subentries": {
+    "light": {
+      "entry_type": "Lamp",
+      "initiate_flow": {
+        "user": "Add lamp",
+        "reconfigure": "Re-pair lamp"
+      },
+      "step": {
+        "user": {
+          "title": "Add a lamp",
+          "description": "Only lamps that were reset are listed (switch the lamp on and off 5 times, it then blinks). A lamp already paired with another app or network will not appear. A lamp that is switched off disappears from the list after 30 seconds: tick \"Refresh the list\" and submit to update it.",
+          "data": {
+            "address": "Lamp",
+            "name": "Name",
+            "refresh": "Refresh the list (adds no lamp)"
+          }
+        },
+        "none_found": {
+          "title": "No lamp found",
+          "description": "No reset lamp nearby. Switch the lamp on and off 5 times until it blinks, then submit to try again."
+        },
+        "reconfigure": {
+          "title": "Re-pair the lamp",
+          "description": "Use this if \"{name}\" was reset (switched on and off 5 times, it blinks): it then no longer answers Home Assistant. It will be paired again, keeping its name, entity and automations."
+        }
+      },
+      "progress": {
+        "provision": "Pairing and configuring the lamp. This takes about 20 seconds."
+      },
+      "abort": {
+        "entry_not_loaded": "The network is not running. Enable it, then try again.",
+        "provisioning_failed": "The lamp could not be added: {error}",
+        "reconfigure_successful": "The lamp is paired again."
+      },
+      "error": {
+        "not_reset": "This lamp is not waiting to be paired. Switch it on and off 5 times until it blinks, then try again."
+      }
+    }
+  },
+  "exceptions": {
+    "command_failed": {
+      "message": "The lamp did not execute the command: {error}"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+name: Bug report
+description: Something does not work with a supported bulb.
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Debug logs
+      description: >-
+        Enable `custom_components.ledvance_mesh: debug` (see the README), reproduce the problem,
+        and paste the relevant lines.
+      render: text
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Integration page → ⋮ → Download diagnostics, then attach the file. It contains no key.
+  - type: input
+    id: version
+    attributes:
+      label: Integration and Home Assistant versions
+      placeholder: 0.3.0 / 2026.11.1
+    validations:
+      required: true

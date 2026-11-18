@@ -1,0 +1,42 @@
+name: Device report
+description: Tell whether a bulb works with the integration, or not.
+labels: [device report]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Bulb model
+      description: As printed on the bulb or its box, with the brand and the store if known.
+      placeholder: Sylvania SMART+ 60A19CBLE (Dollarama)
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Works
+        - Partly works
+        - Refused as unsupported
+        - Pairing fails
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What works and what does not (on/off, brightness, colour, white, state updates).
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: >-
+        Integration page → ⋮ → Download diagnostics, then attach the file. It contains no key.
+        For a refused bulb, the error message is enough.
+  - type: input
+    id: version
+    attributes:
+      label: Integration and Home Assistant versions
+      placeholder: 0.3.0 / 2026.11.1
+    validations:
+      required: true

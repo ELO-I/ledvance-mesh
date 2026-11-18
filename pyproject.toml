@@ -1,0 +1,49 @@
+[project]
+name = "ledvance-mesh"
+version = "0.3.0"
+description = "Home Assistant integration for Ledvance / Sylvania SMART+ Bluetooth Mesh bulbs"
+license = "MIT"
+requires-python = ">=3.14.2"
+
+[dependency-groups]
+dev = [
+    "pytest-homeassistant-custom-component==0.13.375",
+    # Requirements of Home Assistant's `usb` component, loaded by `bluetooth`: Home Assistant
+    # installs them at runtime, the test package does not.
+    "aiousbwatcher==1.1.2",
+    "serialx==1.11.0",
+    "ruff==0.17.5",
+    "mypy==2.4.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF", "D", "ANN"]
+ignore = [
+    "D203", "D213",  # conflicting docstring rules: keep the D212 style
+    "D107",          # __init__ documented by the class docstring
+    "D401",          # imperative mood is not enforced
+    "ANN401",        # `**kwargs: Any` is imposed by Home Assistant signatures
+    "RUF012",        # `_attr_*` class attributes: Home Assistant convention
+]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+known-first-party = ["homeassistant", "custom_components"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "ANN"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+implicit_reexport = true  # like the Home Assistant configuration
+ignore_missing_imports = true

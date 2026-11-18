@@ -1,0 +1,18 @@
+{
+  "domain": "ledvance_mesh",
+  "name": "Ledvance Mesh",
+  "codeowners": [
+    "@ELO-I"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth"
+  ],
+  "documentation": "https://github.com/ELO-I/ledvance-mesh",
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/ELO-I/ledvance-mesh/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.3.0"
+}

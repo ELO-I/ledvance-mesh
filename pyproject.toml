@@ -11,7 +11,7 @@ dev = [
     # Requirements of Home Assistant's `usb` component, loaded by `bluetooth`: Home Assistant
     # installs them at runtime, the test package does not.
     "aiousbwatcher==1.1.2",
-    "serialx==1.11.0",
+    "serialx==1.15.1",
     "ruff==0.17.5",
     "mypy==2.4.1",
 ]

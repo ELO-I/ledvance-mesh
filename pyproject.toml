@@ -12,7 +12,7 @@ dev = [
     # installs them at runtime, the test package does not.
     "aiousbwatcher==1.1.2",
     "serialx==1.11.0",
-    "ruff==0.17.5",
+    "ruff==0.17.6",
     "mypy==2.4.1",
 ]
 
